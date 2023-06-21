@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <div class="inner-container">
+        <div class="btn-container">
+            <button 
+            class="btn" 
+            id="btn-left"
+            (click)="move(true)">
+                <fa-icon 
+                [icon]="faLeft" 
+                size="xl"></fa-icon>
+            </button>
+        </div>
+        <div class="slider" #slider id="slider">
+            <app-book *ngFor="let book of booksList" [title]="book">
+            </app-book>
+        </div>
+        <div class="btn-container">
+            <button 
+            class="btn" 
+            id="btn-right"
+            (click)="move(false)">
+                <fa-icon 
+                [icon]="faRight" 
+                size="xl"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>

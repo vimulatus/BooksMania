@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.search-bar {
+    width: 90%;
+    height: 10vh;
+}
+
+::ng-deep .mat-app-background {
+    background-color: #fafafa;
+    color: #607d8b;
+}

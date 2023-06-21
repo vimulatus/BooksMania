@@ -1,0 +1,16 @@
+.container {
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+::ng-deep .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mat-tab-header-inactive-label-text-color: #607d8b;
+    --mat-tab-header-inactive-focus-label-text-color: #607d8b;
+    --mat-tab-header-inactive-hover-label-text-color: #607d8b;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

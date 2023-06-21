@@ -1,0 +1,151 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$blue-grey-palette: (
+  50: #ECEFF1,
+  100: #CFD8DC,
+  200: #B0BEC5,
+  300: #90A4AE,
+  400: #78909C,
+  500: #607D8B,
+  600: #546E7A,
+  700: #455A64,
+  800: #37474F,
+  900: #263238,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$pink-palette: (
+  50: #fce4ec,
+  100: #f8bbd0,
+  200: #f48fb0,
+  300: #f06291,
+  400: #ec4079,
+  500: #e91e62,
+  600: #d81b5f,
+  700: #c2185a,
+  800: #ad1356,
+  900: #880d4e,
+  A100: #FF80AB,
+  A200: #FF4081,
+  A400: #F50057,
+  A700: #C51162,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$custom-palette: (
+  50: #f7f7f7,
+  100: #eeeeee,
+  200: #e2e2e2,
+  300: #d0d0d0,
+  400: #ababab,
+  500: #8a8a8a,
+  600: #636363,
+  700: #505050,
+  800: #323232,
+  900: #121212,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$purple-palette: (
+  50: #F3E5F5,
+  100: #E1BEE7,
+  200: #CE93D8,
+  300: #BA68C8,
+  400: #AB47BC,
+  500: #9C27B0,
+  600: #8E24AA,
+  700: #7B1FA2,
+  800: #6A1B9A,
+  900: #4A148C,
+  A100: #EA80FC,
+  A200: #E040FB,
+  A400: #D500F9,
+  A700: #AA00FF,
+  contrast: (50: rgba(black, 0.87),
+  100: rgba(black, 0.87),
+  200: rgba(black, 0.87),
+  300: white,
+  400: white,
+  500: white,
+  600: white,
+  700: white,
+  800: white,
+  900: white,
+  A100: rgba(black, 0.87),
+  A200: white,
+  A400: white,
+  A700: white,
+  )
+);
+
+
+$BooksMania-primary: mat.define-palette(mat.$pink-palette );
+$BooksMania-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$BooksMania-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$BooksMania-light-theme: mat.define-light-theme((color: (primary: $BooksMania-primary,
+        accent: $BooksMania-accent,
+        warn: $BooksMania-warn,
+      )));
+
+$BooksMania-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $BooksMania-primary,
+    accent: mat.define-palette($custom-palette, 900),
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($BooksMania-light-theme);

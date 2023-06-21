@@ -1,0 +1,103 @@
+<nav class="nav" id="nav">
+    <div id="left-panel">
+        <!-- Logo and Website Name -->
+        <div 
+        class="container" 
+        id="logo-container"
+        (click)="redirect('/home')">
+            <img src="../../assets/logo.png" alt="png of BooksMania logo - A book getting flipped with pages being multicolored" id="logo">
+            <h2 id="website-name">BooksMania</h2>
+        </div>
+    </div>
+
+    <div id="middle-panel">
+        <!-- Search -->
+        <div 
+        class="container" 
+        id="search-container"
+        *ngIf="enableSearch">
+            <mat-form-field 
+            class="search-bar">
+                <mat-label class="input-label">
+                    <fa-icon [icon]="searchIcon"></fa-icon>
+                </mat-label>
+                <input 
+                type="search" 
+                matInput 
+                placeholder="Search..."
+                [(ngModel)]="query"
+                (keydown)="onSubmit($event)">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div id="right-panel">
+        <!-- Search -->
+        <div 
+        class="container" 
+        id="search-container"
+        matTooltip="Search"
+        *ngIf="enableSearch"
+        (click)="redirect('/search')">
+            <button id="search" class="btn">
+                <fa-icon [icon]="searchIcon"></fa-icon>
+            </button>
+        </div>
+
+        <!-- Theme Change -->
+        <div class="container" id="theme-change-container">
+            <button 
+            class="btn"
+            id="theme-change-sun" 
+            matTooltip="Toggle Night Mode"
+            (click)="toggleTheme()"
+            [@rise]="isDark ? 'set' : 'rise'"
+            [@set]="isDark ? 'set' : 'rise'">
+                <fa-icon [icon]="faSun"></fa-icon>
+            </button>
+
+            <button
+            class="btn"
+            matTooltip="Toggle Light Mode"
+            id="theme-change-moon"
+            (click)="toggleTheme()"
+            [@set]="isDark ? 'rise' : 'set'"
+            [@rise]="isDark ? 'rise' : 'set'">
+                <fa-icon [icon]="faMoon"></fa-icon>
+            </button>
+        </div>
+
+        <!-- Bookmarks -->
+        <div class="container" id="bookmark-container">
+            <button 
+            class="btn"
+            id="bookmark" 
+            matTooltip="My Bookmarks">
+                <fa-icon [icon]="faBookmark"></fa-icon>
+            </button>
+        </div>
+
+        <!-- User's console -->
+        <div class="container dropdown" id="user-container">
+            <button 
+            id="user-btn"
+            matTooltip="My Account"
+            class="dropbtn"
+            (click)="showDropdown = true"
+            #userBtn>
+            </button>
+            <div 
+            class="dropdown-content"
+            *ngIf="showDropdown">
+                <button class="dropdown-item">
+                    <fa-icon [icon]="faGear"></fa-icon>
+                    Profile
+                </button>
+                <button class="dropdown-item">
+                    <fa-icon [icon]="logoutIcon"></fa-icon>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

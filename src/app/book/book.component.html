@@ -1,0 +1,13 @@
+<div 
+class="card" 
+id="card"
+[class.dark]="isDark == true"
+(mouseenter)="isMouseOnTop=true"
+(mouseleave)="isMouseOnTop=false">
+    <div 
+    class="book-name"
+    [@showHide]="isMouseOnTop ? 'show' : 'hide'">
+        <h3 class="animating">{{title}}Atomic Habits</h3>
+        <small class="animating">By {{book?.volumeInfo?.authors}}</small>
+    </div>
+</div>
