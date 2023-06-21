@@ -1,6 +1,5 @@
 # BooksMania
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+BooksMania is a web application that allows users to search for books, discover new titles, read their summaries, purchase books through Amazon or Google Books and organize their reading experience. Users can create an account and create shelves to categorize and manage their books. This project is built using the Angular framework for the frontend, MongoDB for the database, and NodeJS for the backend.
 
 ## Development server
 
