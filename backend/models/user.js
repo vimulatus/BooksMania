@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+// mongoose.connect('mongodb://localhost/booksmania_db');
+
+// const db = mongoose.connection;
+
+// db.on('error', console.error.bind(console, 'error in connecting!'))
+
+// db.once('open', () => {
+//     console.log("Connection successful...")
+// })
+
+const userSchema = new mongoose.Schema({
     userName: {
         type: String,
         required: true,
@@ -23,6 +33,5 @@ const UserSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const User = mongoose.model('User', UserSchema);
-
+const User = mongoose.model('User', userSchema);
 module.exports = User;
